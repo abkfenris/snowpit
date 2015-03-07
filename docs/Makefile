@@ -46,6 +46,12 @@ help:
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 	@echo "  coverage   to run coverage check of the documentation (if enabled)"
+	@echo "  ghp		to import html into github-pages branch"
+
+ghp: html
+	ghp-import -n _build/html/
+	@echo
+	@echo "github-pages branch created from _build/html"
 
 clean:
 	rm -rf $(BUILDDIR)/*
