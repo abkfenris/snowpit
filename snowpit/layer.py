@@ -6,6 +6,17 @@ class Layer(object):
         """
         Create a new layer
         """
-        self.thickness = thickness
-        self.depth = depth
-        self.hardness = hardness
+        self.thickness = float(thickness)
+        self.depth = float(depth)
+        self.hardness = str(hardness)
+
+    def get_thickness(self):
+        """
+        return the current layer thickness
+        """
+        return self.thickness
+
+    def __repr__(self):
+        return '<Layer - Thickness: {thickness} - Depth: {depth} - Hardness: {hardness}>'.format(thickness=self.thickness,
+                                                                                          hardness=self.hardness,
+                                                                                          depth=self.depth)
