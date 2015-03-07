@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>snowpit module &mdash; snowpit 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="snowpit 0.1 documentation" href="index.html"/>
+        <link rel="prev" title="Welcome to snowpit’s documentation!" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> snowpit</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">snowpit module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#snowpit">Snowpit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#layer">Layer</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">snowpit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>snowpit module</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/snowpit.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="snowpit-module">
+<h1>snowpit module<a class="headerlink" href="#snowpit-module" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<div class="section" id="snowpit">
+<h2>Snowpit<a class="headerlink" href="#snowpit" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="snowpit.Snowpit">
+<em class="property">class </em><code class="descclassname">snowpit.</code><code class="descname">Snowpit</code><span class="sig-paren">(</span><em>layers=[]</em>, <em>weather=[]</em>, <em>tests=[]</em>, <em>observations=[]</em>, <em>datetime=None</em>, <em>time=None</em>, <em>date=None</em>, <em>point=None</em>, <em>latitude=None</em>, <em>longitude=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/snowpit.html#Snowpit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Snowpit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Snowpit object</p>
+<dl class="method">
+<dt id="snowpit.Snowpit.add_layer">
+<code class="descname">add_layer</code><span class="sig-paren">(</span><em>layer</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/snowpit.html#Snowpit.add_layer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Snowpit.add_layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a layer to the snowpit&#8217;s existing layers</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="snowpit.Snowpit.get_date_str">
+<code class="descname">get_date_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/snowpit.html#Snowpit.get_date_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Snowpit.get_date_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a legible date for the snowpit</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="snowpit.Snowpit.get_datetime">
+<code class="descname">get_datetime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/snowpit.html#Snowpit.get_datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Snowpit.get_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a datetime object for the Snowpit</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="snowpit.Snowpit.get_datetime_str">
+<code class="descname">get_datetime_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/snowpit.html#Snowpit.get_datetime_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Snowpit.get_datetime_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a formatted datetime string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="snowpit.Snowpit.get_geojson">
+<code class="descname">get_geojson</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/snowpit.html#Snowpit.get_geojson"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Snowpit.get_geojson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns geojson/python geo interface for Snowpit</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="snowpit.Snowpit.get_lat_str">
+<code class="descname">get_lat_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/snowpit.html#Snowpit.get_lat_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Snowpit.get_lat_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns latitude</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="snowpit.Snowpit.get_layers">
+<code class="descname">get_layers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/snowpit.html#Snowpit.get_layers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Snowpit.get_layers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of snowpit layers</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="snowpit.Snowpit.get_lon_str">
+<code class="descname">get_lon_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/snowpit.html#Snowpit.get_lon_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Snowpit.get_lon_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns longitude</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="snowpit.Snowpit.get_time_str">
+<code class="descname">get_time_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/snowpit.html#Snowpit.get_time_str"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Snowpit.get_time_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string for time of snowpit</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="snowpit.Snowpit.set_datetime">
+<code class="descname">set_datetime</code><span class="sig-paren">(</span><em>datetimestring</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/snowpit.html#Snowpit.set_datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Snowpit.set_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set time from a string that arrow can understand</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="layer">
+<h2>Layer<a class="headerlink" href="#layer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="snowpit.Layer">
+<em class="property">class </em><code class="descclassname">snowpit.</code><code class="descname">Layer</code><span class="sig-paren">(</span><em>thickness</em>, <em>depth=None</em>, <em>hardness=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/layer.html#Layer"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Layer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>A single layer in a Snowpit</p>
+<dl class="method">
+<dt id="snowpit.Layer.get_thickness">
+<code class="descname">get_thickness</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/snowpit/layer.html#Layer.get_thickness"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#snowpit.Layer.get_thickness" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the current layer thickness</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to snowpit’s documentation!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Alex Kerney.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
