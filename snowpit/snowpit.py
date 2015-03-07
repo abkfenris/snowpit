@@ -108,9 +108,9 @@ class Snowpit(object):
         Human readable representation of snowpit
         """
         if self.datetime is not None and self.point is not None:
-            return '<Snowpit {datetime} {lat}, {lon}>'.format(datetime=self.get_datetime_str(),
-                                                              lat=self.get_lat_str(),
-                                                              lon=self.get_lon_str())
+            return '<Snowpit {datetime} - {lat}, {lon}>'.format(datetime=self.get_datetime_str(),
+                                                                lat=self.get_lat_str(),
+                                                                lon=self.get_lon_str())
         elif self.datetime is not None:
             return '<Snowpit {datetime}>'.format(datetime=self.get_datetime_str())
         elif self.point is not None:

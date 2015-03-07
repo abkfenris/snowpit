@@ -6,12 +6,18 @@
 Welcome to snowpit's documentation!
 ===================================
 
-Contents:
+``snowpit`` is a module for interacting with `SnowPilot <http://snowpilot.org>`_
+and `CAAML <https://code.google.com/p/caaml/>`_ XML files, in addition to working
+with general snowpack and weather data in python.
+
+Browse through the documentation below to find out how to use snowpit. Or
+head on over to `our GitHub repository <https://github.com/abkfenris/snowpit>`_ to find out how you can contribute to
+the project.
 
 .. toctree::
-   :maxdepth: 2
+    :maxdepth: 2
 
-   snowpit
+    api/index
 
 
 
