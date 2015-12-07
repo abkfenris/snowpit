@@ -72,12 +72,6 @@ class Snowpit(object):
         """
         return self.datetime.time().strftime('%H-%M')
 
-    def get_layers(self):
-        """
-        Returns a list of snowpit layers
-        """
-        return self.layers
-
     def add_layer(self, layer):
         """
         Adds a layer to the snowpit's existing layers
@@ -86,19 +80,22 @@ class Snowpit(object):
             self.layers.append(layer)
             self.layers.sort(key=lambda x: x.depth)
 
-    def get_lat_str(self):
+    @property
+    def lat(self):
         """
         Returns latitude
         """
         return self.point.y
 
-    def get_lon_str(self):
+    @property
+    def lon(self):
         """
         Returns longitude
         """
         return self.point.x
 
-    def get_geojson(self):
+    @property
+    def geojson(self):
         """
         Returns geojson/python geo interface for Snowpit
         """
@@ -110,8 +107,8 @@ class Snowpit(object):
         """
         if self.datetime is not None and self.point is not None:
             return '<Snowpit {datetime} - {lat}, {lon}>'.format(datetime=self.get_datetime_str(),
-                                                                lat=self.point.y,
-                                                                lon=self.point.x)
+                                                                lat=self.lat,
+                                                                lon=self.lon)
         elif self.datetime is not None:
             return '<Snowpit {datetime}>'.format(datetime=self.get_datetime_str())
         elif self.point is not None:
