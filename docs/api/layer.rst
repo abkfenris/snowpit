@@ -1,8 +1,6 @@
 ``snowpit.Layer``
 ==================
 
-.. toctree::
-
 Layer
 -----
 

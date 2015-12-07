@@ -8,4 +8,5 @@ setup(name='snowpit',
       author_email='',
       license='',
       packages=['snowpit'],
+      install_requires=['arrow', 'shapely'],
       zip_safe=False)

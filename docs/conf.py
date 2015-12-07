@@ -15,9 +15,6 @@
 import sys
 import os
 
-# required so that automodules work
-#sys.path.append(os.path.abspath('.'))
-
 # Is this running on readthedocs.org?
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 

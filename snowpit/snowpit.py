@@ -1,6 +1,7 @@
 import arrow
 from shapely.geometry import Point, asShape, mapping
 
+
 class Snowpit(object):
     """
     Snowpit object
@@ -37,7 +38,7 @@ class Snowpit(object):
             else:
                 self.point = asShape(point)
         elif latitude is not None and longitude is not None:
-            self.point = Point(float(latitude), float(longitude))
+            self.point = Point(float(longitude), float(latitude))
         else:
             self.point = None
 
@@ -57,7 +58,7 @@ class Snowpit(object):
         """
         Returns a formatted datetime string
         """
-        return self.datetime.strftime('%Y-%m-%d %H-%M')
+        return self.datetime.strftime('%Y-%m-%d %H:%M')
 
     def get_date_str(self):
         """
@@ -109,8 +110,8 @@ class Snowpit(object):
         """
         if self.datetime is not None and self.point is not None:
             return '<Snowpit {datetime} - {lat}, {lon}>'.format(datetime=self.get_datetime_str(),
-                                                                lat=self.get_lat_str(),
-                                                                lon=self.get_lon_str())
+                                                                lat=self.point.y,
+                                                                lon=self.point.x)
         elif self.datetime is not None:
             return '<Snowpit {datetime}>'.format(datetime=self.get_datetime_str())
         elif self.point is not None:
