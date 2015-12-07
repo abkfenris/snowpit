@@ -7,10 +7,10 @@ class Snowpit(object):
     Snowpit object
     """
     def __init__(self,
-                 layers=[],
-                 weather=[],
-                 tests=[],
-                 observations=[],
+                 layers=None,
+                 weather=None,
+                 tests=None,
+                 observations=None,
                  datetime=None,
                  time=None,
                  date=None,
@@ -20,6 +20,14 @@ class Snowpit(object):
         """
         Initialize a new snowpit
         """
+        if layers is None:
+                layers = []
+        if weather is None:
+                weather = []
+        if tests is None:
+                tests = []
+        if observations is None:
+                observations = []
         self.layers = layers
         self.weather = weather
         self.tests = tests
