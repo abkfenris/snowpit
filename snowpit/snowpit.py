@@ -1,3 +1,5 @@
+import json
+
 import arrow
 from shapely.geometry import Point, asShape, mapping
 
@@ -21,24 +23,22 @@ class Snowpit(object):
         Initialize a new snowpit
         """
         if layers is None:
-                layers = []
+            layers = []
         if weather is None:
-                weather = []
+            weather = []
         if tests is None:
-                tests = []
+            tests = []
         if observations is None:
-                observations = []
+            observations = []
         self.layers = layers
         self.weather = weather
         self.tests = tests
         self.observations = observations
 
         if datetime is not None:
-            self.set_datetime(datetime)
+            self.datetime = datetime
         elif date is not None and time is not None:
-            self.set_datetime(date + ' ' + time)
-        else:
-            self.datetime = None
+            self.datetime = date + ' ' + time
 
         if point is not None:
             if type(point) == Point:
@@ -50,19 +50,22 @@ class Snowpit(object):
         else:
             self.point = None
 
-    def set_datetime(self, datetimestring):
-        """
-        Set time from a string that arrow can understand
-        """
-        self.datetime = arrow.get(datetimestring).datetime
-
-    def get_datetime(self):
+    @property
+    def datetime(self):
         """
         Returns a datetime object for the Snowpit
         """
-        return self.datetime
+        return self._datetime
 
-    def get_datetime_str(self):
+    @datetime.setter
+    def datetime(self, datetimestring):
+        """
+        Set time from a string that arrow can understand
+        """
+        self._datetime = arrow.get(datetimestring).datetime
+
+    @property
+    def datetime_str(self):
         """
         Returns a formatted datetime string
         """
@@ -109,16 +112,29 @@ class Snowpit(object):
         """
         return mapping(self.point)
 
+    @property
+    def geojson_feature(self):
+        """
+        Returns a geojson feature for Snowpit
+        """
+        return json.dumps({
+            'type': 'Feature',
+            'geometry': self.geojson,
+            'properties': {
+                'datetime': str(self.datetime),
+            }
+        })
+
     def __repr__(self):
         """
         Human readable representation of snowpit
         """
         if self.datetime is not None and self.point is not None:
-            return '<Snowpit {datetime} - {lat}, {lon}>'.format(datetime=self.get_datetime_str(),
+            return '<Snowpit {datetime} - {lat}, {lon}>'.format(datetime=self.datetime_str,
                                                                 lat=self.lat,
                                                                 lon=self.lon)
         elif self.datetime is not None:
-            return '<Snowpit {datetime}>'.format(datetime=self.get_datetime_str())
+            return '<Snowpit {datetime}>'.format(datetime=self.datetime_str)
         elif self.point is not None:
-            return '<Snowpit {lat}, {lon}>'.format(lat=self.get_lat_str(),
-                                                   lon=self.get_lon_str())
+            return '<Snowpit {lat}, {lon}>'.format(lat=self.lat,
+                                                   lon=self.lon)

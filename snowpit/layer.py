@@ -12,6 +12,14 @@ class Layer(object):
         self.grain_form = str(grain_form)
 
     def __repr__(self):
-        return '<Layer - Thickness: {thickness} - Depth: {depth} - Hardness: {hardness}>'.format(thickness=self.thickness,
-                                                                                          hardness=self.hardness,
-                                                                                          depth=self.depth)
+        output = '<Layer'
+        if self.thickness:
+            output += ' - Thickness: ' + str(self.thickness)
+        if self.depth is not None:
+            output += ' - Depth: ' + str(self.depth)
+        if self.hardness:
+            output += ' - Hardness: ' + self.hardness
+        if self.grain_form:
+            output += ' - Grain Form: ' + self.grain_form
+        output += '>'
+        return output
