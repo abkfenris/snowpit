@@ -1,4 +1,5 @@
 import json
+from collections import OrderedDict
 
 import arrow
 from shapely.geometry import Point, asShape, mapping
@@ -18,7 +19,11 @@ class Snowpit(object):
                  date=None,
                  point=None,
                  latitude=None,
-                 longitude=None):
+                 longitude=None,
+                 elevation=None,
+                 elevation_unit=None,
+                 aspect=None,
+                 temps=None):
         """
         Initialize a new snowpit
         """
@@ -30,10 +35,16 @@ class Snowpit(object):
             tests = []
         if observations is None:
             observations = []
+        if temps is None:
+            temps = []
         self.layers = layers
         self.weather = weather
         self.tests = tests
         self.observations = observations
+        self.elevation = elevation
+        self.elevation_unit = elevation_unit
+        self.aspect = aspect
+        self.temps = temps
 
         if datetime is not None:
             self.datetime = datetime
@@ -90,6 +101,13 @@ class Snowpit(object):
         if layer not in self.layers:
             self.layers.append(layer)
             self.layers.sort(key=lambda x: x.depth)
+
+    @property
+    def depth(self):
+        """
+        Returns total layer thickness
+        """
+        return sum((layer.thickness for layer in self.layers))
 
     @property
     def lat(self):

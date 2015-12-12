@@ -42,15 +42,42 @@ def loads(xml):
                       .find('{http://www.opengis.net/gml}pos'))
     lat, lon = position_point.text.split()
 
+    position_elevation_element = (position_obs.find(ns + 'validElevation')
+                                  .find(ns + 'ElevationPosition'))
+    elevation_unit = position_elevation_element.get('uom')
+    elevation = float(position_elevation_element.find(ns + 'position').text)
+
+    try:
+        aspect = (position_obs.find(ns + 'validAspect')
+                  .find(ns + 'AspectPosition')
+                  .find(ns + 'position').text)
+    except AttributeError:
+        aspect = None
+
     profile = (root.find(ns + 'snowProfileResultsOf')
                .find(ns + 'SnowProfileMeasurements'))
     strat = profile.find(ns + 'stratProfile')
     layers = [layer_from_element(layer, ns) for layer in strat.getchildren()]
 
+    temp_element = profile.find(ns + 'tempProfile')
+    temps = []
+    for temp in temp_element.getchildren():
+        temps.append({'depth': temp.find(ns + 'depth').text,
+                     'temp': temp.find(ns + 'snowTemp').text})
+    temps.sort(key=lambda reading: reading['depth'])
+
+    test_element = profile.find(ns + 'stbTests')
+    for test in test_element.getchildren():
+        print(test)
+
     pit = Snowpit(datetime=time_instant,
                   latitude=lat,
                   longitude=lon,
-                  layers=layers)
+                  layers=layers,
+                  elevation=elevation,
+                  elevation_unit=elevation_unit,
+                  aspect=aspect,
+                  temps=temps)
     return pit
 
 
