@@ -6,9 +6,13 @@ import arrow
 
 from .layer import Layer
 from .snowpit import Snowpit
+import snowpit.test as test
 
 
 def layer_from_element(element, ns):
+    """
+    Returns a new layer from an xml element
+    """
     depth_element = element.find(ns + 'depthTop')
     depth = float(depth_element.text)
 
@@ -22,6 +26,18 @@ def layer_from_element(element, ns):
     grain = grain_element.text or None
 
     return Layer(thickness, depth=depth, hardness=hardness, grain_form=grain)
+
+
+def test_from_element(element, ns):
+    """
+    returns a new test from an xml element
+    """
+    failed_element = element.find(ns + 'failedOn')
+    depth = float(failed_element.find(ns + 'Layer').find(ns + 'depthTop').text)
+
+    results_element = failed_element.find(ns + 'Results')
+    score = results_element.find(ns + 'testScore').text
+    print(depth, score)
 
 
 def loads(xml):
@@ -69,6 +85,7 @@ def loads(xml):
     test_element = profile.find(ns + 'stbTests')
     for test in test_element.getchildren():
         print(test)
+        test_from_element(test, ns)
 
     pit = Snowpit(datetime=time_instant,
                   latitude=lat,

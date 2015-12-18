@@ -14,6 +14,7 @@ This library plans to contain:
 |               |                   |
 |               | |scrutinizer|     |
 |               | |codeclimate|     |
+|               | |codacy|          |
 +---------------+-------------------+
 | Issues        | |issues|          |
 +---------------+-------------------+
@@ -35,6 +36,8 @@ This library plans to contain:
     :target: https://github.com/abkfenris/snowpit/issues
 .. |codeclimate| image:: https://codeclimate.com/github/abkfenris/snowpit/badges/gpa.svg
     :target: https://codeclimate.com/github/abkfenris/snowpit
+.. |codacy| image:: https://api.codacy.com/project/badge/grade/49c8bcf03b864a569a833a7c1be15236
+    :target: https://www.codacy.com/app/abk/snowpit
 
 
 **Table of Contents**
